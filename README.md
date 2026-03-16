@@ -1,36 +1,64 @@
-This is a [Next.js](https://nextjs.org) project bootstrapped with [`create-next-app`](https://nextjs.org/docs/app/api-reference/cli/create-next-app).
+# RWA Protocol - DeFi Chat App
 
-## Getting Started
+基于 BNB Chain 的 DeFi 即时聊天工具
 
-First, run the development server:
+## 🚀 快速开始
+
+### 本地开发
 
 ```bash
+# 安装依赖
+npm install
+
+# 启动开发服务器
 npm run dev
-# or
-yarn dev
-# or
-pnpm dev
-# or
-bun dev
 ```
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+访问 http://localhost:3000
 
-You can start editing the page by modifying `app/page.tsx`. The page auto-updates as you edit the file.
+### 部署到 Vercel
 
-This project uses [`next/font`](https://nextjs.org/docs/app/building-your-application/optimizing/fonts) to automatically optimize and load [Geist](https://vercel.com/font), a new font family for Vercel.
+1. Fork 这个仓库
+2. 在 Vercel 导入项目
+3. 一键部署
 
-## Learn More
+或者点击：
 
-To learn more about Next.js, take a look at the following resources:
+[![Deploy with Vercel](https://vercel.com/button)](https://vercel.com/new/clone?repository-url=https://github.com/wx6668888/rwa-defi-chat)
 
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
+## 📱 已完成页面
 
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js) - your feedback and contributions are welcome!
+- ✅ 启动页 (/) - 钱包连接
+- ✅ 频道列表 (/channels) - 主页
 
-## Deploy on Vercel
+## 🛠️ 技术栈
 
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
+- Next.js 16
+- React 19
+- TypeScript
+- Tailwind CSS v4
+- ethers.js (即将集成)
 
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/app/building-your-application/deploying) for more details.
+## 📦 项目结构
+
+```
+rwa-defi-chat/
+├── app/                 # 页面
+│   ├── page.tsx        # 启动页
+│   └── channels/       # 频道列表
+├── components/         # 组件
+│   ├── bottom-nav.tsx
+│   └── node-hexagon-grid.tsx
+└── lib/               # 工具函数
+    └── constants.ts
+```
+
+## 🎨 设计系统
+
+- 暗色主题
+- 字体: Inter + Space Grotesk + JetBrains Mono
+- 颜色: Plasma Cyan (#00f5d4) + Accent Gold (#f59e0b)
+
+## 📄 License
+
+MIT
