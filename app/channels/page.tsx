@@ -86,15 +86,13 @@ export default function ChannelsPage() {
             </Link>
 
             {/* Locked Channel */}
-            <div className="relative overflow-hidden rounded-xl">
-              <div className="absolute inset-0 bg-surface-2/50 backdrop-blur-sm z-10 flex items-center justify-center">
-                <div className="text-center">
-                  <Lock className="w-6 h-6 text-gold-node mx-auto mb-2" />
-                  <div className="text-xs font-bold text-text-primary mb-1">L4 Starship required</div>
-                  <div className="text-[10px] text-text-secondary">$50K team volume</div>
-                </div>
+            <div className="relative rounded-xl overflow-hidden">
+              <div className="absolute inset-0 bg-surface-2/80 backdrop-blur-md z-10 flex flex-col items-center justify-center p-4">
+                <Lock className="w-5 h-5 text-gold-node mb-2" />
+                <div className="text-xs font-bold text-text-primary text-center mb-1">L4 Starship required</div>
+                <div className="text-[10px] text-text-secondary text-center">$50K team volume</div>
               </div>
-              <div className="flex items-center gap-4 py-3 opacity-40">
+              <div className="flex items-center gap-4 py-3 opacity-30">
                 <div className="text-2xl">🛸</div>
                 <div className="flex-1 min-w-0">
                   <div className="font-medium text-text-primary text-sm mb-0.5">Starship Alliance [L4+]</div>
