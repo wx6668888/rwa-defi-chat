@@ -2,8 +2,11 @@
 
 import { Copy } from "lucide-react";
 import { BottomNav } from "@/components/bottom-nav";
+import { NodeHexIcon } from "@/components/node-hex-icon";
+import { NODE_LEVELS } from "@/lib/node-levels";
 
 export default function ProfilePage() {
+  const currentLevel = NODE_LEVELS[4]; // L5
   return (
     <div className="min-h-screen bg-void-black pb-20">
       {/* Background Effects */}
@@ -18,16 +21,7 @@ export default function ProfilePage() {
         <div className="bg-void-dark px-6 py-8">
           {/* Node Level Icon */}
           <div className="mb-4 flex justify-center">
-            <div
-              className="flex h-24 w-24 items-center justify-center text-4xl"
-              style={{
-                clipPath: 'polygon(50% 0%, 100% 25%, 100% 75%, 50% 100%, 0% 75%, 0% 25%)',
-                backgroundColor: 'rgba(245,158,11,0.08)',
-                border: '2px solid #f59e0b',
-              }}
-            >
-              ☄️
-            </div>
+            <NodeHexIcon config={currentLevel} size={96} showCode={false} />
           </div>
 
           {/* Level Badge */}

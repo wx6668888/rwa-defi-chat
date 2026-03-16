@@ -1,7 +1,8 @@
 "use client";
 
 import { useState } from "react";
-import { NodeHexagonGrid } from "@/components/node-hexagon-grid";
+import { NodeHexIcon } from "@/components/node-hex-icon";
+import { NODE_LEVELS } from "@/lib/node-levels";
 
 export default function LaunchPage() {
   const [showWalletModal, setShowWalletModal] = useState(false);
@@ -45,7 +46,17 @@ export default function LaunchPage() {
 
         {/* Node Hexagon Grid */}
         <div className="mb-12">
-          <NodeHexagonGrid />
+          <div className="grid grid-cols-3 gap-4 max-w-xs mx-auto">
+            {NODE_LEVELS.map((level) => (
+              <NodeHexIcon
+                key={level.level}
+                config={level}
+                size={80}
+                showCode={true}
+                isUnlocked={level.level <= 5}
+              />
+            ))}
+          </div>
         </div>
 
         {/* Stats Strip */}
