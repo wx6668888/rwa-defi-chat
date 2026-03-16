@@ -9,7 +9,6 @@ interface NodeHexIconProps {
   showCode?: boolean
   className?: string
   isInteractive?: boolean
-  isUnlocked?: boolean
   onClick?: () => void
 }
 
@@ -133,7 +132,7 @@ const RENDERERS: Renderer[] = [
   ),
 ]
 
-export function NodeHexIcon({ config, size = 64, showCode = true, className = '', isInteractive = false, isUnlocked = true, onClick }: NodeHexIconProps) {
+export function NodeHexIcon({ config, size = 64, showCode = true, className = '', isInteractive = false, onClick }: NodeHexIconProps) {
   injectStyles()
   const [hovered, setHovered] = useState(false)
   const idx = Math.min(Math.max(config.level - 1, 0), 8)
@@ -141,21 +140,13 @@ export function NodeHexIcon({ config, size = 64, showCode = true, className = ''
   const glowSize = config.level >= 7 ? config.level * 2 : 0
 
   return (
-    <div className={`relative flex flex-col items-center gap-1 ${isInteractive ? 'cursor-pointer' : ''} ${!isUnlocked ? 'opacity-40' : ''} ${className}`}
+    <div className={`relative flex flex-col items-center gap-1 ${isInteractive ? 'cursor-pointer' : ''} ${className}`}
       style={{ width: size, transform: hovered && isInteractive ? 'scale(1.08)' : undefined, transition: 'transform 0.25s ease' }}
       onMouseEnter={() => setHovered(true)} onMouseLeave={() => setHovered(false)} onClick={onClick}>
-      <svg viewBox="0 0 80 80" width={size} height={size} style={{ overflow: 'visible', filter: isUnlocked && glowSize > 0 ? `drop-shadow(0 0 ${glowSize}px ${accent}70)` : undefined }}>
+      <svg viewBox="0 0 80 80" width={size} height={size} style={{ overflow: 'visible', filter: glowSize > 0 ? `drop-shadow(0 0 ${glowSize}px ${accent}70)` : undefined }}>
         {RENDERERS[idx](accent)}
       </svg>
-      {showCode && <span style={{ fontFamily: "'JetBrains Mono', monospace", fontSize: Math.max(size * 0.16, 9), fontWeight: 700, color: accent, opacity: isUnlocked ? 0.9 : 0.4 }}>{config.code}</span>}
-      {!isUnlocked && (
-        <div className="absolute inset-0 flex items-center justify-center">
-          <svg width={size * 0.32} height={size * 0.32} viewBox="0 0 24 24" fill="none" stroke="#f43f5e" strokeWidth="2.5" style={{ animation: 'nhi-lock-pulse 2s ease-in-out infinite' }}>
-            <rect x="3" y="11" width="18" height="11" rx="2" />
-            <path d="M7 11V7a5 5 0 0 1 10 0v4" />
-          </svg>
-        </div>
-      )}
+      {showCode && <span style={{ fontFamily: "'JetBrains Mono', monospace", fontSize: Math.max(size * 0.16, 9), fontWeight: 700, color: accent, opacity: 0.9 }}>{config.code}</span>}
     </div>
   )
 }
