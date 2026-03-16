@@ -1,6 +1,7 @@
 "use client";
 
 import { useState } from "react";
+import { NodeHexagonGrid } from "@/components/node-hexagon-grid";
 
 export default function LaunchPage() {
   const [showWalletModal, setShowWalletModal] = useState(false);
@@ -42,14 +43,9 @@ export default function LaunchPage() {
           </p>
         </div>
 
-        {/* Node Hexagon Grid - Placeholder for now */}
+        {/* Node Hexagon Grid */}
         <div className="mb-12">
-          <div className="relative h-[280px] w-[280px]">
-            {/* Will add hexagon grid in next iteration */}
-            <div className="absolute inset-0 flex items-center justify-center">
-              <div className="text-6xl">🌐</div>
-            </div>
-          </div>
+          <NodeHexagonGrid />
         </div>
 
         {/* Stats Strip */}
