@@ -3,34 +3,14 @@
 import { useState } from "react";
 import { NodeHexIcon } from "@/components/node-hex-icon";
 import { NODE_LEVELS } from "@/lib/node-levels";
+import { BackgroundEffects } from "@/components/background-effects";
 
 export default function LaunchPage() {
   const [showWalletModal, setShowWalletModal] = useState(false);
 
   return (
     <div className="relative min-h-screen bg-void-black overflow-hidden">
-      {/* Background Effects */}
-      <div className="pointer-events-none fixed inset-0">
-        {/* Cyan orb top-right */}
-        <div className="absolute -top-32 -right-32 h-[600px] w-[600px] rounded-full bg-[radial-gradient(circle,rgba(0,245,212,0.08)_0%,transparent_70%)] blur-3xl" />
-        {/* Purple orb bottom-left */}
-        <div className="absolute -bottom-40 -left-40 h-[800px] w-[800px] rounded-full bg-[radial-gradient(circle,rgba(139,92,246,0.07)_0%,transparent_70%)] blur-3xl" />
-        {/* Grain texture */}
-        <div 
-          className="absolute inset-0 opacity-[0.04]"
-          style={{
-            backgroundImage: `url("data:image/svg+xml,%3Csvg viewBox='0 0 256 256' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='noise'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='4'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23noise)'/%3E%3C/svg%3E")`,
-          }}
-        />
-        {/* Grid */}
-        <div 
-          className="absolute inset-0 opacity-[0.03]"
-          style={{
-            backgroundImage: 'linear-gradient(rgba(255,255,255,0.05) 1px, transparent 1px), linear-gradient(90deg, rgba(255,255,255,0.05) 1px, transparent 1px)',
-            backgroundSize: '80px 80px',
-          }}
-        />
-      </div>
+      <BackgroundEffects />
 
       {/* Content */}
       <div className="relative z-10 flex min-h-screen flex-col items-center justify-center px-6">
@@ -92,7 +72,7 @@ export default function LaunchPage() {
       {/* Wallet Modal - Will implement in next step */}
       {showWalletModal && (
         <div className="fixed inset-0 z-50 flex items-end justify-center bg-black/85 backdrop-blur-sm">
-          <div className="w-full max-w-md bg-void-dark rounded-t-3xl p-6 animate-slide-up">
+          <div className="w-full max-w-md bg-surface-1 rounded-t-3xl p-6 animate-slide-up">
             <div className="w-9 h-1 bg-text-disabled rounded-full mx-auto mb-6" />
             <h2 className="font-display text-base font-bold tracking-[0.1em] text-text-primary mb-2">
               SELECT WALLET
@@ -105,7 +85,7 @@ export default function LaunchPage() {
               {["MetaMask", "Trust Wallet", "Binance Web3", "WalletConnect"].map((wallet) => (
                 <button
                   key={wallet}
-                  className="w-full h-16 flex items-center justify-between px-4 border-b border-white/5 hover:bg-white/5 transition-colors"
+                  className="w-full h-16 flex items-center justify-between px-4 border-b border-border-subtle hover:bg-white/5 transition-colors"
                 >
                   <span className="font-display text-sm font-semibold text-text-primary">{wallet}</span>
                   <span className="text-text-secondary">→</span>

@@ -22,7 +22,7 @@ export default function FinancialPage() {
   return (
     <div className="min-h-screen bg-void-black pb-20">
       {/* Header */}
-      <div className="sticky top-0 z-10 bg-void-black/80 backdrop-blur-xl border-b border-white/5">
+      <div className="sticky top-0 z-10 bg-void-black/80 backdrop-blur-xl border-b border-border-subtle">
         <div className="flex items-center gap-4 px-6 py-4">
           <Link href="/profile">
             <ArrowLeft className="w-5 h-5 text-text-secondary" />
@@ -34,7 +34,7 @@ export default function FinancialPage() {
       {/* Stats Grid */}
       <div className="px-6 py-6 grid grid-cols-3 gap-3">
         {stats.map((stat, i) => (
-          <div key={i} className="bg-void-dark rounded-2xl p-4 border border-white/5">
+          <div key={i} className="bg-surface-1 rounded-2xl p-4 border border-border-subtle">
             <div className="text-[10px] text-text-secondary uppercase tracking-wider mb-2">
               {stat.label}
             </div>
@@ -51,7 +51,7 @@ export default function FinancialPage() {
 
       {/* Chart Placeholder */}
       <div className="px-6 mb-6">
-        <div className="bg-void-dark rounded-2xl p-6 border border-white/5">
+        <div className="bg-surface-1 rounded-2xl p-6 border border-border-subtle">
           <div className="text-sm font-medium text-text-primary mb-4">Income Trend</div>
           <div className="h-40 flex items-end justify-between gap-2">
             {[40, 65, 45, 80, 55, 90, 70].map((h, i) => (
@@ -70,7 +70,7 @@ export default function FinancialPage() {
         <div className="text-sm font-medium text-text-primary mb-3">Recent Transactions</div>
         <div className="space-y-2">
           {transactions.map((tx, i) => (
-            <div key={i} className="bg-void-dark rounded-xl p-4 border border-white/5 flex items-center justify-between">
+            <div key={i} className="bg-surface-1 rounded-xl p-4 border border-border-subtle flex items-center justify-between">
               <div>
                 <div className="text-sm font-medium text-text-primary">{tx.type}</div>
                 <div className="text-xs text-text-secondary mt-1">{tx.time}</div>

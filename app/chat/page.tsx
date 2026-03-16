@@ -9,7 +9,7 @@ export default function ChatRoomPage() {
   return (
     <div className="flex h-screen flex-col bg-void-black">
       {/* Top Bar */}
-      <div className="flex h-12 items-center justify-between border-b border-white/5 px-4">
+      <div className="flex h-12 items-center justify-between border-b border-border-subtle px-4">
         <button className="flex h-10 w-10 items-center justify-center text-text-secondary">
           <ArrowLeft className="h-5 w-5" />
         </button>
@@ -36,7 +36,7 @@ export default function ChatRoomPage() {
       </div>
 
       {/* Live Stats Strip */}
-      <div className="flex h-8 items-center gap-3 overflow-x-auto border-b border-white/5 bg-void-dark px-4 scrollbar-hide">
+      <div className="flex h-8 items-center gap-3 overflow-x-auto border-b border-border-subtle bg-surface-1 px-4 scrollbar-hide">
         <StatItem label="TVL" value="$24.7M" trend="↑" />
         <span className="text-text-disabled">·</span>
         <StatItem label="RWA" value="$0.87" />
@@ -70,7 +70,7 @@ export default function ChatRoomPage() {
       </div>
 
       {/* Bottom Input */}
-      <div className="border-t border-white/5 bg-void-dark p-3">
+      <div className="border-t border-border-subtle bg-surface-1 p-3">
         {/* Quick Actions */}
         <div className="mb-2 flex gap-2 overflow-x-auto scrollbar-hide">
           <QuickAction emoji="🧧" label="Red Packet" />
@@ -87,7 +87,7 @@ export default function ChatRoomPage() {
             value={message}
             onChange={(e) => setMessage(e.target.value)}
             placeholder="Message..."
-            className="flex-1 h-10 rounded-lg border border-white/8 bg-void-darker px-3 text-sm text-text-primary placeholder:text-text-disabled focus:border-plasma-cyan/30 focus:outline-none"
+            className="flex-1 h-10 rounded-lg border border-white/8 bg-surface-1er px-3 text-sm text-text-primary placeholder:text-text-disabled focus:border-plasma-cyan/30 focus:outline-none"
           />
           {message && (
             <button className="flex h-10 w-10 items-center justify-center rounded-lg bg-plasma-cyan">
@@ -112,7 +112,7 @@ function StatItem({ label, value, trend }: { label: string; value: string; trend
 
 function QuickAction({ emoji, label }: { emoji: string; label: string }) {
   return (
-    <button className="flex h-8 shrink-0 items-center gap-1.5 rounded-full border border-white/8 bg-void-darker px-3 text-xs text-text-secondary hover:border-plasma-cyan/20 hover:text-plasma-cyan">
+    <button className="flex h-8 shrink-0 items-center gap-1.5 rounded-full border border-white/8 bg-surface-1er px-3 text-xs text-text-secondary hover:border-plasma-cyan/20 hover:text-plasma-cyan">
       <span>{emoji}</span>
       <span>{label}</span>
     </button>
@@ -121,7 +121,7 @@ function QuickAction({ emoji, label }: { emoji: string; label: string }) {
 
 function SystemMessage() {
   return (
-    <div className="mx-auto max-w-sm rounded-xl border border-plasma-cyan/12 bg-void-dark p-3">
+    <div className="mx-auto max-w-sm rounded-xl border border-plasma-cyan/12 bg-surface-1 p-3">
       <div className="mb-2 flex items-center gap-2">
         <span className="text-lg">🎰</span>
         <span className="text-[10px] font-semibold uppercase tracking-wider text-text-secondary">
@@ -141,7 +141,7 @@ function SystemMessage() {
 function Message({ address, level, emoji, text, time }: any) {
   return (
     <div className="flex items-start gap-2">
-      <div className="flex h-7 w-7 shrink-0 items-center justify-center rounded-full bg-void-darker text-sm">
+      <div className="flex h-7 w-7 shrink-0 items-center justify-center rounded-full bg-surface-1er text-sm">
         {emoji}
       </div>
       <div className="flex-1">
@@ -158,7 +158,7 @@ function Message({ address, level, emoji, text, time }: any) {
 
 function DataCardMessage() {
   return (
-    <div className="max-w-sm rounded-xl border border-accent-gold/20 bg-void-dark p-3">
+    <div className="max-w-sm rounded-xl border border-accent-gold/20 bg-surface-1 p-3">
       <div className="mb-2 text-[10px] font-semibold uppercase tracking-wider text-accent-gold">
         📊 STAKING SNAPSHOT
       </div>
@@ -196,7 +196,7 @@ function RedPacketMessage() {
       <p className="mb-3 text-center text-xs text-text-secondary">
         10 packets · First come first served
       </p>
-      <div className="mb-3 h-1 overflow-hidden rounded-full bg-void-darker">
+      <div className="mb-3 h-1 overflow-hidden rounded-full bg-surface-1er">
         <div className="h-full w-[30%] bg-plasma-cyan" />
       </div>
       <p className="mb-3 text-center font-mono text-xs text-text-secondary">

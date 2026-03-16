@@ -13,7 +13,7 @@ export default function TransparencyPage() {
 
   return (
     <div className="min-h-screen bg-void-black pb-20">
-      <div className="sticky top-0 z-10 bg-void-black/80 backdrop-blur-xl border-b border-white/5">
+      <div className="sticky top-0 z-10 bg-void-black/80 backdrop-blur-xl border-b border-border-subtle">
         <div className="flex items-center gap-4 px-6 py-4">
           <Link href="/profile"><ArrowLeft className="w-5 h-5 text-text-secondary" /></Link>
           <h1 className="font-display text-xl font-bold text-text-primary">Protocol Transparency</h1>
@@ -21,7 +21,7 @@ export default function TransparencyPage() {
       </div>
 
       <div className="px-6 py-6">
-        <div className="bg-void-dark rounded-2xl p-6 border border-white/5 mb-6 text-center">
+        <div className="bg-surface-1 rounded-2xl p-6 border border-border-subtle mb-6 text-center">
           <Shield className="w-12 h-12 text-plasma-cyan mx-auto mb-3" />
           <div className="text-sm text-text-secondary">All data is on-chain and verifiable</div>
         </div>
@@ -30,7 +30,7 @@ export default function TransparencyPage() {
           {metrics.map((m, i) => {
             const Icon = m.icon;
             return (
-              <div key={i} className="bg-void-dark rounded-xl p-5 border border-white/5">
+              <div key={i} className="bg-surface-1 rounded-xl p-5 border border-border-subtle">
                 <div className="flex items-center gap-3 mb-2">
                   <Icon className={`w-5 h-5 ${m.color}`} />
                   <span className="text-xs text-text-secondary uppercase tracking-wider">{m.label}</span>

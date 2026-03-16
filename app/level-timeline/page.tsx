@@ -17,7 +17,7 @@ export default function LevelTimelinePage() {
 
   return (
     <div className="min-h-screen bg-void-black pb-20">
-      <div className="sticky top-0 z-10 bg-void-black/80 backdrop-blur-xl border-b border-white/5">
+      <div className="sticky top-0 z-10 bg-void-black/80 backdrop-blur-xl border-b border-border-subtle">
         <div className="flex items-center gap-4 px-6 py-4">
           <Link href="/profile"><ArrowLeft className="w-5 h-5 text-text-secondary" /></Link>
           <h1 className="font-display text-xl font-bold text-text-primary">Level Timeline</h1>
@@ -35,7 +35,7 @@ export default function LevelTimelinePage() {
                   <div className="relative z-10">
                     <MiniNodeHexIcon config={config} size={48} />
                   </div>
-                  <div className="flex-1 bg-void-dark rounded-xl p-4 border border-white/5">
+                  <div className="flex-1 bg-surface-1 rounded-xl p-4 border border-border-subtle">
                     <div className="font-display text-lg font-bold text-text-primary mb-1">
                       {config.name}
                     </div>

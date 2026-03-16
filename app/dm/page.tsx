@@ -13,7 +13,7 @@ export default function DMPage() {
 
   return (
     <div className="min-h-screen bg-void-black flex flex-col">
-      <div className="sticky top-0 z-10 bg-void-black/80 backdrop-blur-xl border-b border-white/5">
+      <div className="sticky top-0 z-10 bg-void-black/80 backdrop-blur-xl border-b border-border-subtle">
         <div className="flex items-center gap-4 px-6 py-4">
           <Link href="/channels"><ArrowLeft className="w-5 h-5 text-text-secondary" /></Link>
           <div className="flex items-center gap-3">
@@ -29,7 +29,7 @@ export default function DMPage() {
       <div className="flex-1 px-6 py-6 space-y-4">
         {messages.map((msg, i) => (
           <div key={i} className={`flex ${msg.from === 'me' ? 'justify-end' : 'justify-start'}`}>
-            <div className={`max-w-[75%] ${msg.from === 'me' ? 'bg-plasma-cyan/10 text-text-primary' : 'bg-void-dark text-text-primary'} rounded-2xl px-4 py-3 border border-white/5`}>
+            <div className={`max-w-[75%] ${msg.from === 'me' ? 'bg-plasma-cyan/10 text-text-primary' : 'bg-surface-1 text-text-primary'} rounded-2xl px-4 py-3 border border-border-subtle`}>
               <div className="text-sm">{msg.text}</div>
               <div className="text-[10px] text-text-secondary mt-1">{msg.time}</div>
             </div>
@@ -37,10 +37,10 @@ export default function DMPage() {
         ))}
       </div>
 
-      <div className="sticky bottom-0 bg-void-black border-t border-white/5 px-6 py-4">
+      <div className="sticky bottom-0 bg-void-black border-t border-border-subtle px-6 py-4">
         <div className="flex items-center gap-3">
           <input type="text" placeholder="Message..." 
-            className="flex-1 bg-void-dark border border-white/5 rounded-xl px-4 py-3 text-sm text-text-primary" />
+            className="flex-1 bg-surface-1 border border-border-subtle rounded-xl px-4 py-3 text-sm text-text-primary" />
           <button className="w-10 h-10 bg-plasma-cyan rounded-xl flex items-center justify-center">
             <Send className="w-4 h-4 text-void-black" />
           </button>

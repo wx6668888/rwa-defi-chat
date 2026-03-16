@@ -14,13 +14,13 @@ export default function DiscoverPage() {
 
   return (
     <div className="min-h-screen bg-void-black pb-20">
-      <div className="sticky top-0 z-10 bg-void-black/80 backdrop-blur-xl border-b border-white/5">
+      <div className="sticky top-0 z-10 bg-void-black/80 backdrop-blur-xl border-b border-border-subtle">
         <div className="px-6 py-4">
           <h1 className="font-display text-xl font-bold text-text-primary mb-4">Discover</h1>
           <div className="relative">
             <Search className="absolute left-4 top-1/2 -translate-y-1/2 w-4 h-4 text-text-secondary" />
             <input type="text" placeholder="Search channels..." 
-              className="w-full bg-void-dark border border-white/5 rounded-xl pl-11 pr-4 py-3 text-sm text-text-primary placeholder:text-text-secondary" />
+              className="w-full bg-surface-1 border border-border-subtle rounded-xl pl-11 pr-4 py-3 text-sm text-text-primary placeholder:text-text-secondary" />
           </div>
         </div>
       </div>
@@ -28,7 +28,7 @@ export default function DiscoverPage() {
       <div className="px-6 py-4">
         <div className="flex gap-2 overflow-x-auto scrollbar-hide pb-4">
           {categories.map((cat) => (
-            <button key={cat} className="px-4 py-2 bg-void-dark border border-white/5 rounded-full text-xs font-medium text-text-secondary whitespace-nowrap">
+            <button key={cat} className="px-4 py-2 bg-surface-1 border border-border-subtle rounded-full text-xs font-medium text-text-secondary whitespace-nowrap">
               {cat}
             </button>
           ))}
@@ -42,7 +42,7 @@ export default function DiscoverPage() {
         </div>
         <div className="space-y-3">
           {trending.map((ch, i) => (
-            <div key={i} className="bg-void-dark rounded-2xl p-5 border border-white/5">
+            <div key={i} className="bg-surface-1 rounded-2xl p-5 border border-border-subtle">
               <div className="flex items-start justify-between mb-3">
                 <div>
                   <div className="font-display text-lg font-bold text-text-primary">{ch.name}</div>

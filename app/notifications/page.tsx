@@ -14,7 +14,7 @@ export default function NotificationsPage() {
 
   return (
     <div className="min-h-screen bg-void-black pb-20">
-      <div className="sticky top-0 z-10 bg-void-black/80 backdrop-blur-xl border-b border-white/5">
+      <div className="sticky top-0 z-10 bg-void-black/80 backdrop-blur-xl border-b border-border-subtle">
         <div className="flex items-center justify-between px-6 py-4">
           <div className="flex items-center gap-4">
             <Link href="/channels"><ArrowLeft className="w-5 h-5 text-text-secondary" /></Link>
@@ -28,7 +28,7 @@ export default function NotificationsPage() {
         {notifications.map((notif, i) => {
           const Icon = notif.icon;
           return (
-            <div key={i} className="bg-void-dark rounded-xl p-4 border border-white/5 flex items-start gap-4">
+            <div key={i} className="bg-surface-1 rounded-xl p-4 border border-border-subtle flex items-start gap-4">
               <div className={`w-10 h-10 rounded-full bg-void-black flex items-center justify-center ${notif.color}`}>
                 <Icon className="w-5 h-5" />
               </div>

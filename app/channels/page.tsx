@@ -17,7 +17,7 @@ export default function ChannelsPage() {
         {/* Top Bar */}
         <div className="flex items-center justify-between px-5 py-4">
           <div className="flex items-center gap-2">
-            <div className="flex h-8 w-8 items-center justify-center rounded-lg bg-void-darker text-sm">
+            <div className="flex h-8 w-8 items-center justify-center rounded-lg bg-surface-1er text-sm">
               ⚡
             </div>
             <span className="text-[10px] font-mono text-accent-gold">L1</span>
@@ -33,7 +33,7 @@ export default function ChannelsPage() {
 
         {/* Search Bar */}
         <div className="mx-5 mb-4">
-          <div className="flex h-10 items-center gap-2 rounded-lg border border-white/5 bg-void-dark px-3">
+          <div className="flex h-10 items-center gap-2 rounded-lg border border-border-subtle bg-surface-1 px-3">
             <Search className="h-4 w-4 text-text-disabled" />
             <input
               type="text"
@@ -115,7 +115,7 @@ function ChannelRow({
 }) {
   return (
     <div className="flex items-start gap-3 rounded-xl p-3 transition-colors hover:bg-white/5">
-      <div className="flex h-10 w-10 shrink-0 items-center justify-center rounded-xl bg-void-darker text-lg">
+      <div className="flex h-10 w-10 shrink-0 items-center justify-center rounded-xl bg-surface-1er text-lg">
         {emoji}
       </div>
       <div className="min-w-0 flex-1">
@@ -152,7 +152,7 @@ function LockedChannelRow({
   return (
     <div className="relative overflow-hidden rounded-xl bg-white/5 p-3 backdrop-blur-sm">
       <div className="flex items-start gap-3 opacity-40 blur-[2px]">
-        <div className="flex h-10 w-10 shrink-0 items-center justify-center rounded-xl bg-void-darker text-lg">
+        <div className="flex h-10 w-10 shrink-0 items-center justify-center rounded-xl bg-surface-1er text-lg">
           {emoji}
         </div>
         <div className="min-w-0 flex-1">

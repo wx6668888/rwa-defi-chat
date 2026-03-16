@@ -16,7 +16,7 @@ export function BottomNav() {
   const pathname = usePathname();
 
   return (
-    <div className="fixed bottom-0 left-0 right-0 z-50 border-t border-white/5 bg-void-dark backdrop-blur-xl">
+    <div className="fixed bottom-0 left-0 right-0 z-50 border-t border-border-subtle bg-void-dark backdrop-blur-xl">
       <div className="mx-auto flex h-16 max-w-md items-center justify-around px-4">
         {tabs.map((tab) => {
           const Icon = tab.icon;

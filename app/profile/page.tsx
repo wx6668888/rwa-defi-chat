@@ -18,7 +18,7 @@ export default function ProfilePage() {
       {/* Content */}
       <div className="relative z-10">
         {/* Hero Section */}
-        <div className="bg-void-dark px-6 py-8">
+        <div className="bg-surface-1 px-6 py-8">
           {/* Node Level Icon */}
           <div className="mb-4 flex justify-center">
             <NodeHexIcon config={currentLevel} size={96} showCode={false} />
@@ -49,7 +49,7 @@ export default function ProfilePage() {
         </div>
 
         {/* Stats Row */}
-        <div className="grid grid-cols-4 border-y border-white/5 bg-void-dark">
+        <div className="grid grid-cols-4 border-y border-border-subtle bg-surface-1">
           <StatItem value="25,000" label="STAKED" color="text-plasma-cyan" />
           <StatItem value="+$1,240" label="EARNED" color="text-accent-green" />
           <StatItem value="47" label="TEAM" color="text-text-primary" />
@@ -58,7 +58,7 @@ export default function ProfilePage() {
 
         {/* Level Progress */}
         <div className="mx-5 mt-6">
-          <div className="rounded-2xl border border-accent-gold/20 bg-void-dark p-4">
+          <div className="rounded-2xl border border-accent-gold/20 bg-surface-1 p-4">
             <div className="mb-3 flex items-center justify-between">
               <span className="font-display text-[13px] font-bold text-text-primary">
                 L5 → L6
@@ -69,7 +69,7 @@ export default function ProfilePage() {
             </div>
             
             {/* Progress Bar */}
-            <div className="mb-3 h-1.5 overflow-hidden rounded-full bg-void-darker">
+            <div className="mb-3 h-1.5 overflow-hidden rounded-full bg-surface-1er">
               <div className="h-full w-[38%] bg-accent-gold" />
             </div>
 
@@ -88,7 +88,7 @@ export default function ProfilePage() {
         {/* Portfolio Cards */}
         <div className="mx-5 mt-4 grid grid-cols-2 gap-3">
           {/* USDT Staking */}
-          <div className="rounded-xl border border-plasma-cyan/20 bg-void-dark p-4">
+          <div className="rounded-xl border border-plasma-cyan/20 bg-surface-1 p-4">
             <div className="mb-1 text-[9px] font-semibold uppercase tracking-wider text-text-disabled">
               USDT STAKED
             </div>
@@ -124,7 +124,7 @@ export default function ProfilePage() {
           </div>
 
           {/* stRWA Balance */}
-          <div className="rounded-xl border border-accent-purple/20 bg-void-dark p-4">
+          <div className="rounded-xl border border-accent-purple/20 bg-surface-1 p-4">
             <div className="mb-1 text-[9px] font-semibold uppercase tracking-wider text-text-disabled">
               stRWA BALANCE
             </div>
@@ -143,7 +143,7 @@ export default function ProfilePage() {
 
         {/* Referral Link */}
         <div className="mx-5 mt-4">
-          <div className="rounded-xl border border-accent-purple/20 bg-void-dark p-4">
+          <div className="rounded-xl border border-accent-purple/20 bg-surface-1 p-4">
             <div className="mb-2 text-[9px] font-semibold uppercase tracking-wider text-text-disabled">
               MY REFERRAL LINK
             </div>
@@ -169,7 +169,7 @@ export default function ProfilePage() {
 
 function StatItem({ value, label, color }: { value: string; label: string; color: string }) {
   return (
-    <div className="flex flex-col items-center border-r border-white/5 py-3 last:border-r-0">
+    <div className="flex flex-col items-center border-r border-border-subtle py-3 last:border-r-0">
       <div className={`font-mono text-lg font-bold ${color}`}>{value}</div>
       <div className="text-[9px] uppercase tracking-wider text-text-disabled">{label}</div>
     </div>

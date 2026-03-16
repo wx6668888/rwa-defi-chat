@@ -13,7 +13,7 @@ export default function LuckyDrawPage() {
 
   return (
     <div className="min-h-screen bg-void-black pb-20">
-      <div className="sticky top-0 z-10 bg-void-black/80 backdrop-blur-xl border-b border-white/5">
+      <div className="sticky top-0 z-10 bg-void-black/80 backdrop-blur-xl border-b border-border-subtle">
         <div className="flex items-center gap-4 px-6 py-4">
           <Link href="/channels"><ArrowLeft className="w-5 h-5 text-text-secondary" /></Link>
           <h1 className="font-display text-xl font-bold text-text-primary">Lucky Draw</h1>
@@ -34,7 +34,7 @@ export default function LuckyDrawPage() {
         <div className="text-sm font-medium text-text-primary mb-3">Recent Winners</div>
         <div className="space-y-2">
           {winners.map((w, i) => (
-            <div key={i} className="bg-void-dark rounded-xl p-4 border border-white/5 flex items-center justify-between">
+            <div key={i} className="bg-surface-1 rounded-xl p-4 border border-border-subtle flex items-center justify-between">
               <div>
                 <div className="text-sm font-medium text-text-primary">{w.name}</div>
                 <div className="text-xs text-text-secondary mt-1">{w.time}</div>
