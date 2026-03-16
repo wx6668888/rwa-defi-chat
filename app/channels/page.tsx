@@ -1,6 +1,7 @@
 "use client";
 
 import { Search, Bell, Lock } from "lucide-react";
+import Link from "next/link";
 import { BottomNav } from "@/components/bottom-nav";
 import { BackgroundEffects } from "@/components/background-effects";
 
@@ -43,23 +44,27 @@ export default function ChannelsPage() {
         <div>
           <div className="text-[10px] text-text-disabled uppercase tracking-[0.15em] mb-4 font-bold">OFFICIAL</div>
           <div className="space-y-3">
-            <div className="flex items-center gap-4 py-3">
-              <div className="text-2xl">📢</div>
-              <div className="flex-1 min-w-0">
-                <div className="font-medium text-text-primary text-sm mb-0.5">Announcements</div>
-                <div className="text-xs text-text-secondary">2m ago</div>
+            <Link href="/chat">
+              <div className="flex items-center gap-4 py-3 cursor-pointer hover:opacity-80 transition-opacity">
+                <div className="text-2xl">📢</div>
+                <div className="flex-1 min-w-0">
+                  <div className="font-medium text-text-primary text-sm mb-0.5">Announcements</div>
+                  <div className="text-xs text-text-secondary">2m ago</div>
+                </div>
+                <div className="w-6 h-6 bg-plasma-cyan rounded-full flex items-center justify-center flex-shrink-0">
+                  <span className="text-[10px] font-bold text-void-black">3</span>
+                </div>
               </div>
-              <div className="w-6 h-6 bg-plasma-cyan rounded-full flex items-center justify-center flex-shrink-0">
-                <span className="text-[10px] font-bold text-void-black">3</span>
+            </Link>
+            <Link href="/chat">
+              <div className="flex items-center gap-4 py-3 cursor-pointer hover:opacity-80 transition-opacity">
+                <div className="text-2xl">🎰</div>
+                <div className="flex-1 min-w-0">
+                  <div className="font-medium text-text-primary text-sm mb-0.5">Lucky Draw</div>
+                  <div className="text-xs text-text-secondary">1h ago</div>
+                </div>
               </div>
-            </div>
-            <div className="flex items-center gap-4 py-3">
-              <div className="text-2xl">🎰</div>
-              <div className="flex-1 min-w-0">
-                <div className="font-medium text-text-primary text-sm mb-0.5">Lucky Draw</div>
-                <div className="text-xs text-text-secondary">1h ago</div>
-              </div>
-            </div>
+            </Link>
           </div>
         </div>
 
@@ -67,16 +72,18 @@ export default function ChannelsPage() {
         <div>
           <div className="text-[10px] text-text-disabled uppercase tracking-[0.15em] mb-4 font-bold">COMMUNITY</div>
           <div className="space-y-3">
-            <div className="flex items-center gap-4 py-3">
-              <div className="text-2xl">🌐</div>
-              <div className="flex-1 min-w-0">
-                <div className="font-medium text-text-primary text-sm mb-0.5">Global Community</div>
-                <div className="text-xs text-text-secondary">Just now</div>
+            <Link href="/chat">
+              <div className="flex items-center gap-4 py-3 cursor-pointer hover:opacity-80 transition-opacity">
+                <div className="text-2xl">🌐</div>
+                <div className="flex-1 min-w-0">
+                  <div className="font-medium text-text-primary text-sm mb-0.5">Global Community</div>
+                  <div className="text-xs text-text-secondary">Just now</div>
+                </div>
+                <div className="px-2 py-1 bg-plasma-cyan rounded-full">
+                  <span className="text-[10px] font-bold text-void-black">99+</span>
+                </div>
               </div>
-              <div className="px-2 py-1 bg-plasma-cyan rounded-full">
-                <span className="text-[10px] font-bold text-void-black">99+</span>
-              </div>
-            </div>
+            </Link>
 
             {/* Locked Channel */}
             <div className="relative overflow-hidden rounded-xl">

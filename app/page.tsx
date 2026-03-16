@@ -1,6 +1,7 @@
 "use client";
 
 import { useState } from "react";
+import Link from "next/link";
 import { NodeHexIcon } from "@/components/node-hex-icon";
 import { NODE_LEVELS } from "@/lib/node-levels";
 import { BackgroundEffects } from "@/components/background-effects";
@@ -55,12 +56,13 @@ export default function LaunchPage() {
         </div>
 
         {/* CTA Button */}
-        <button 
-          onClick={() => setShowWalletModal(true)}
-          className="group px-10 py-4 border-2 border-plasma-cyan bg-transparent text-plasma-cyan font-bold text-sm tracking-wide rounded-lg hover:bg-plasma-cyan hover:text-void-black transition-all duration-300 hover:shadow-[0_0_30px_rgba(0,245,212,0.5)]"
-        >
-          CONNECT WALLET
-        </button>
+        <Link href="/channels">
+          <button 
+            className="group px-10 py-4 border-2 border-plasma-cyan bg-transparent text-plasma-cyan font-bold text-sm tracking-wide rounded-lg hover:bg-plasma-cyan hover:text-void-black transition-all duration-300 hover:shadow-[0_0_30px_rgba(0,245,212,0.5)]"
+          >
+            CONNECT WALLET
+          </button>
+        </Link>
 
         {/* Footer */}
         <p className="text-[10px] text-text-secondary mt-8 tracking-wide">
