@@ -1,4 +1,5 @@
 import { supabase } from '../supabase'
+import { sanitizeMessage } from '../utils/sanitize'
 
 export const channelService = {
   async getAll() {
@@ -27,12 +28,13 @@ export const channelService = {
   },
 
   async sendMessage(channelId: string, userId: string, content: string) {
+    const sanitized = sanitizeMessage(content)
     const { data, error } = await supabase
       .from('messages')
       .insert({
         channel_id: channelId,
         user_id: userId,
-        content,
+        content: sanitized,
         message_type: 'text'
       })
       .select()
