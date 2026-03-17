@@ -1,0 +1,7 @@
+<?xml version='1.0' encoding='utf-8'?>
+<resources>
+    <string name="app_name">RWA Chat</string>
+    <string name="title_activity_main">RWA Chat</string>
+    <string name="package_name">com.rwa.chat</string>
+    <string name="custom_url_scheme">com.rwa.chat</string>
+</resources>
