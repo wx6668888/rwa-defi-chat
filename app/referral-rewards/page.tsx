@@ -1,61 +1,38 @@
-"use client";
-
-import { ArrowLeft, Copy, Share2 } from "lucide-react";
-import { BottomNav } from "@/components/bottom-nav";
-import Link from "next/link";
+"use client"
 
 export default function ReferralRewardsPage() {
-  const rewards = [
-    { tier: "Tier 1", rate: "10%", count: 15, earned: "$1,500" },
-    { tier: "Tier 2", rate: "5%", count: 8, earned: "$800" },
-    { tier: "Tier 3", rate: "2%", count: 12, earned: "$240" },
-  ];
-
   return (
-    <div className="min-h-screen bg-void-black pb-20">
-      <div className="sticky top-0 z-10 bg-void-black/80 backdrop-blur-xl border-b border-border-subtle">
-        <div className="flex items-center gap-4 px-6 py-4">
-          <Link href="/profile"><ArrowLeft className="w-5 h-5 text-text-secondary" /></Link>
-          <h1 className="font-display text-xl font-bold text-text-primary">Referral Rewards</h1>
-        </div>
+    <div className="relative flex min-h-screen flex-col bg-[#05050a] pb-20">
+      <div className="pointer-events-none fixed inset-0">
+        <div className="absolute -right-[200px] top-[100px] h-[500px] w-[500px] rounded-full bg-[#f59e0b] opacity-[0.06] blur-3xl" />
       </div>
 
-      <div className="px-6 py-6">
-        <div className="bg-gradient-to-br from-plasma-cyan/10 to-accent-purple/10 rounded-2xl p-6 border border-plasma-cyan/20 mb-6">
-          <div className="text-xs text-text-secondary uppercase tracking-wider mb-2">Your Referral Code</div>
-          <div className="flex items-center gap-3">
-            <div className="flex-1 font-mono text-lg font-bold text-text-primary">RWA-X7K9P2</div>
-            <button className="w-10 h-10 bg-surface-1 rounded-lg flex items-center justify-center">
-              <Copy className="w-4 h-4 text-plasma-cyan" />
-            </button>
-            <button className="w-10 h-10 bg-surface-1 rounded-lg flex items-center justify-center">
-              <Share2 className="w-4 h-4 text-plasma-cyan" />
-            </button>
-          </div>
-        </div>
+      <div className="relative z-10 px-5 pt-6">
+        <h1 className="mb-6 font-[family-name:var(--font-space-grotesk)] text-lg font-extrabold uppercase tracking-[0.08em] text-[#f1f5f9]">
+          Referral Rewards
+        </h1>
 
-        <div className="bg-surface-1 rounded-2xl p-6 border border-border-subtle mb-6">
-          <div className="text-xs text-text-secondary uppercase tracking-wider mb-3">Total Earnings</div>
-          <div className="font-mono text-3xl font-bold text-accent-green">$2,540.00</div>
+        <div className="mb-6 rounded-xl border border-[rgba(255,255,255,0.04)] bg-[#0d0d14] p-5 text-center">
+          <div className="mb-2 text-xs font-bold uppercase text-[#64748b]">TOTAL EARNED</div>
+          <div className="font-[family-name:var(--font-jetbrains-mono)] text-4xl font-bold text-[#f59e0b]">$847.20</div>
         </div>
 
         <div className="space-y-3">
-          {rewards.map((r, i) => (
-            <div key={i} className="bg-surface-1 rounded-xl p-4 border border-border-subtle">
-              <div className="flex items-center justify-between mb-2">
-                <span className="text-sm font-medium text-text-primary">{r.tier}</span>
-                <span className="text-xs text-plasma-cyan font-bold">{r.rate}</span>
+          {[
+            { type: "Direct", amount: "$124.50", time: "2h ago" },
+            { type: "Team", amount: "$89.30", time: "1d ago" },
+            { type: "Direct", amount: "$56.80", time: "3d ago" },
+          ].map((reward, i) => (
+            <div key={i} className="flex items-center justify-between rounded-xl border border-[rgba(255,255,255,0.04)] bg-[#0d0d14] p-4">
+              <div>
+                <div className="font-[family-name:var(--font-space-grotesk)] text-sm font-bold text-[#f1f5f9]">{reward.type} Reward</div>
+                <div className="text-xs text-[#64748b]">{reward.time}</div>
               </div>
-              <div className="flex items-center justify-between text-xs">
-                <span className="text-text-secondary">{r.count} referrals</span>
-                <span className="font-mono font-bold text-accent-green">{r.earned}</span>
-              </div>
+              <div className="font-[family-name:var(--font-jetbrains-mono)] text-lg font-bold text-[#f59e0b]">{reward.amount}</div>
             </div>
           ))}
         </div>
       </div>
-
-      <BottomNav />
     </div>
-  );
+  )
 }

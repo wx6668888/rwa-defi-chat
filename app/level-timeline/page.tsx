@@ -1,54 +1,40 @@
-"use client";
-
-import { ArrowLeft } from "lucide-react";
-import { BottomNav } from "@/components/bottom-nav";
-import { MiniNodeHexIcon } from "@/components/node-hex-icon";
-import { NODE_LEVELS } from "@/lib/node-levels";
-import Link from "next/link";
+"use client"
 
 export default function LevelTimelinePage() {
-  const milestones = [
-    { level: 5, date: "2026-03-15", unlocked: true },
-    { level: 4, date: "2026-02-10", unlocked: true },
-    { level: 3, date: "2026-01-05", unlocked: true },
-    { level: 2, date: "2025-12-01", unlocked: true },
-    { level: 1, date: "2025-11-15", unlocked: true },
-  ];
+  const levels = [
+    { level: 1, emoji: "⚡", name: "Spark", req: "$1K", unlocked: true },
+    { level: 2, emoji: "🔬", name: "Atom", req: "$3K", unlocked: false },
+    { level: 3, emoji: "✨", name: "Photon", req: "$10K", unlocked: false },
+  ]
 
   return (
-    <div className="min-h-screen bg-void-black pb-20">
-      <div className="sticky top-0 z-10 bg-void-black/80 backdrop-blur-xl border-b border-border-subtle">
-        <div className="flex items-center gap-4 px-6 py-4">
-          <Link href="/profile"><ArrowLeft className="w-5 h-5 text-text-secondary" /></Link>
-          <h1 className="font-display text-xl font-bold text-text-primary">Level Timeline</h1>
-        </div>
+    <div className="relative flex min-h-screen flex-col bg-[#05050a] pb-20">
+      <div className="pointer-events-none fixed inset-0">
+        <div className="absolute -right-[200px] top-[100px] h-[500px] w-[500px] rounded-full bg-[#f59e0b] opacity-[0.06] blur-3xl" />
       </div>
 
-      <div className="px-6 py-6">
-        <div className="relative">
-          <div className="absolute left-8 top-0 bottom-0 w-0.5 bg-gradient-to-b from-plasma-cyan to-accent-purple" />
-          <div className="space-y-6">
-            {milestones.map((m) => {
-              const config = NODE_LEVELS[m.level - 1];
-              return (
-                <div key={m.level} className="relative flex items-start gap-4">
-                  <div className="relative z-10">
-                    <MiniNodeHexIcon config={config} size={48} />
-                  </div>
-                  <div className="flex-1 bg-surface-1 rounded-xl p-4 border border-border-subtle">
-                    <div className="font-display text-lg font-bold text-text-primary mb-1">
-                      {config.name}
-                    </div>
-                    <div className="text-xs text-text-secondary">{m.date}</div>
-                  </div>
+      <div className="relative z-10 px-5 pt-6">
+        <h1 className="mb-6 font-[family-name:var(--font-space-grotesk)] text-lg font-extrabold uppercase tracking-[0.08em] text-[#f1f5f9]">
+          Level Timeline
+        </h1>
+
+        <div className="space-y-4">
+          {levels.map((lvl) => (
+            <div key={lvl.level} className={`rounded-xl border bg-[#0d0d14] p-4 ${lvl.unlocked ? 'border-[rgba(0,245,212,0.12)]' : 'border-[rgba(255,255,255,0.04)] opacity-50'}`}>
+              <div className="flex items-center gap-3">
+                <div className="flex h-12 w-12 shrink-0 items-center justify-center rounded-full bg-[rgba(245,158,11,0.1)] text-2xl">
+                  {lvl.emoji}
                 </div>
-              );
-            })}
-          </div>
+                <div className="flex-1">
+                  <div className="font-[family-name:var(--font-space-grotesk)] text-sm font-bold text-[#f1f5f9]">L{lvl.level} {lvl.name}</div>
+                  <div className="text-xs text-[#64748b]">Requires {lvl.req} personal</div>
+                </div>
+                {lvl.unlocked && <div className="text-[#10b981]">✓</div>}
+              </div>
+            </div>
+          ))}
         </div>
       </div>
-
-      <BottomNav />
     </div>
-  );
+  )
 }

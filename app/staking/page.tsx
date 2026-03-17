@@ -1,61 +1,38 @@
-"use client";
-
-import { ArrowLeft, Lock, Unlock } from "lucide-react";
-import { BottomNav } from "@/components/bottom-nav";
-import Link from "next/link";
+"use client"
 
 export default function StakingPage() {
-  const positions = [
-    { amount: "5,000", token: "RWA", apy: "45%", unlockDate: "2026-06-15", days: 89, locked: true },
-    { amount: "2,500", token: "RWA", apy: "35%", unlockDate: "2026-04-20", days: 34, locked: true },
-    { amount: "1,000", token: "RWA", apy: "25%", unlockDate: "Flexible", days: 0, locked: false },
-  ];
-
   return (
-    <div className="min-h-screen bg-void-black pb-20">
-      <div className="sticky top-0 z-10 bg-void-black/80 backdrop-blur-xl border-b border-border-subtle">
-        <div className="flex items-center gap-4 px-6 py-4">
-          <Link href="/profile"><ArrowLeft className="w-5 h-5 text-text-secondary" /></Link>
-          <h1 className="font-display text-xl font-bold text-text-primary">Staking</h1>
-        </div>
+    <div className="relative flex min-h-screen flex-col bg-[#05050a] pb-20">
+      <div className="pointer-events-none fixed inset-0">
+        <div className="absolute -right-[200px] top-[100px] h-[500px] w-[500px] rounded-full bg-[#f59e0b] opacity-[0.06] blur-3xl" />
       </div>
 
-      <div className="px-6 py-6">
-        <div className="bg-surface-1 rounded-2xl p-6 border border-border-subtle mb-6">
-          <div className="text-xs text-text-secondary uppercase tracking-wider mb-2">Total Staked</div>
-          <div className="font-mono text-3xl font-bold text-text-primary mb-1">8,500 RWA</div>
-          <div className="text-sm text-accent-green">≈ $34,000.00</div>
+      <div className="relative z-10 px-5 pt-6">
+        <h1 className="mb-6 font-[family-name:var(--font-space-grotesk)] text-lg font-extrabold uppercase tracking-[0.08em] text-[#f1f5f9]">
+          Staking
+        </h1>
+
+        {/* Active Stakes */}
+        <div className="mb-6 rounded-xl border border-[rgba(255,255,255,0.04)] bg-[#0d0d14] p-5">
+          <div className="mb-3 text-xs font-bold uppercase text-[#64748b]">ACTIVE STAKE</div>
+          <div className="mb-2 font-[family-name:var(--font-jetbrains-mono)] text-2xl font-bold text-[#00f5d4]">$25,000 USDT</div>
+          <div className="mb-4 text-xs text-[#64748b]">90-day lock · 47 days remaining</div>
+          <div className="mb-3 h-2 overflow-hidden rounded-full bg-[#13131e]">
+            <div className="h-full rounded-full bg-[#00f5d4]" style={{ width: "48%" }} />
+          </div>
+          <div className="flex justify-between text-xs">
+            <span className="text-[#64748b]">APY</span>
+            <span className="font-[family-name:var(--font-jetbrains-mono)] font-bold text-[#f59e0b]">17%</span>
+          </div>
         </div>
 
-        <div className="space-y-3">
-          {positions.map((pos, i) => (
-            <div key={i} className="bg-surface-1 rounded-2xl p-5 border border-border-subtle">
-              <div className="flex items-start justify-between mb-4">
-                <div>
-                  <div className="font-mono text-xl font-bold text-text-primary">{pos.amount} {pos.token}</div>
-                  <div className="text-xs text-text-secondary mt-1">APY {pos.apy}</div>
-                </div>
-                {pos.locked ? <Lock className="w-5 h-5 text-accent-gold" /> : <Unlock className="w-5 h-5 text-accent-green" />}
-              </div>
-              <div className="flex items-center justify-between text-sm">
-                <span className="text-text-secondary">Unlock</span>
-                <span className="text-text-primary font-medium">{pos.unlockDate}</span>
-              </div>
-              {pos.locked && (
-                <div className="mt-3 h-1.5 bg-void-black rounded-full overflow-hidden">
-                  <div className="h-full bg-gradient-to-r from-plasma-cyan to-accent-purple" style={{ width: `${(90 - pos.days) / 90 * 100}%` }} />
-                </div>
-              )}
-            </div>
-          ))}
+        {/* Earnings */}
+        <div className="rounded-xl border border-[rgba(255,255,255,0.04)] bg-[#0d0d14] p-5">
+          <div className="mb-3 text-xs font-bold uppercase text-[#64748b]">TOTAL EARNED</div>
+          <div className="font-[family-name:var(--font-jetbrains-mono)] text-2xl font-bold text-[#10b981]">+$1,240 RWA</div>
+          <div className="mt-2 text-xs text-[#64748b]">≈ 1,424 RWA tokens</div>
         </div>
-
-        <button className="w-full mt-6 bg-plasma-cyan text-void-black font-bold py-4 rounded-xl">
-          New Stake
-        </button>
       </div>
-
-      <BottomNav />
     </div>
-  );
+  )
 }

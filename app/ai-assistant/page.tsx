@@ -1,54 +1,41 @@
-"use client";
+"use client"
 
-import { ArrowLeft, Send, Sparkles } from "lucide-react";
-import { BottomNav } from "@/components/bottom-nav";
-import Link from "next/link";
+import { Send } from "lucide-react"
+import { useState } from "react"
 
 export default function AIAssistantPage() {
-  const messages = [
-    { from: "ai", text: "Hi! I'm your AI assistant. How can I help you today?" },
-    { from: "user", text: "What's my current APY?" },
-    { from: "ai", text: "Your current APY is 45% on locked stakes and 25% on flexible stakes." },
-  ];
+  const [message, setMessage] = useState("")
 
   return (
-    <div className="min-h-screen bg-void-black flex flex-col pb-20">
-      <div className="sticky top-0 z-10 bg-void-black/80 backdrop-blur-xl border-b border-border-subtle">
-        <div className="flex items-center gap-4 px-6 py-4">
-          <Link href="/channels"><ArrowLeft className="w-5 h-5 text-text-secondary" /></Link>
+    <div className="relative flex min-h-screen flex-col bg-[#05050a]">
+      <div className="pointer-events-none fixed inset-0">
+        <div className="absolute -right-[200px] top-[100px] h-[500px] w-[500px] rounded-full bg-[#f59e0b] opacity-[0.06] blur-3xl" />
+      </div>
+
+      <div className="relative z-10 flex flex-1 flex-col">
+        <div className="px-5 pt-6">
+          <h1 className="mb-6 font-[family-name:var(--font-space-grotesk)] text-lg font-extrabold uppercase tracking-[0.08em] text-[#f1f5f9]">
+            AI Assistant
+          </h1>
+        </div>
+
+        <div className="flex-1 px-5">
+          <div className="rounded-xl border border-[rgba(255,255,255,0.04)] bg-[#0d0d14] p-4 text-center">
+            <div className="mb-3 text-4xl">🤖</div>
+            <div className="text-sm text-[#64748b]">How can I help you today?</div>
+          </div>
+        </div>
+
+        <div className="border-t border-[rgba(255,255,255,0.05)] bg-[#0d0d14] p-4">
           <div className="flex items-center gap-3">
-            <div className="w-10 h-10 rounded-full bg-gradient-to-br from-plasma-cyan to-accent-purple flex items-center justify-center">
-              <Sparkles className="w-5 h-5 text-white" />
-            </div>
-            <div>
-              <div className="font-medium text-text-primary">AI Assistant</div>
-              <div className="text-xs text-accent-green">Online</div>
-            </div>
+            <input type="text" value={message} onChange={(e) => setMessage(e.target.value)} placeholder="Ask me anything..." 
+              className="flex-1 rounded-xl border border-[rgba(255,255,255,0.08)] bg-[#13131e] px-4 py-3 text-sm text-[#f1f5f9] placeholder:text-[#334155] focus:border-[#00f5d4]/30 focus:outline-none" />
+            <button className="flex h-11 w-11 shrink-0 items-center justify-center rounded-xl bg-[#00f5d4]">
+              <Send className="h-5 w-5 text-[#05050a]" />
+            </button>
           </div>
         </div>
       </div>
-
-      <div className="flex-1 px-6 py-6 space-y-4">
-        {messages.map((msg, i) => (
-          <div key={i} className={`flex ${msg.from === 'user' ? 'justify-end' : 'justify-start'}`}>
-            <div className={`max-w-[80%] ${msg.from === 'user' ? 'bg-plasma-cyan/10' : 'bg-surface-1'} rounded-2xl px-4 py-3 border border-border-subtle`}>
-              <div className="text-sm text-text-primary">{msg.text}</div>
-            </div>
-          </div>
-        ))}
-      </div>
-
-      <div className="sticky bottom-0 bg-void-black border-t border-border-subtle px-6 py-4">
-        <div className="flex items-center gap-3">
-          <input type="text" placeholder="Ask anything..." 
-            className="flex-1 bg-surface-1 border border-border-subtle rounded-xl px-4 py-3 text-sm text-text-primary" />
-          <button className="w-10 h-10 bg-plasma-cyan rounded-xl flex items-center justify-center">
-            <Send className="w-4 h-4 text-void-black" />
-          </button>
-        </div>
-      </div>
-
-      <BottomNav />
     </div>
-  );
+  )
 }

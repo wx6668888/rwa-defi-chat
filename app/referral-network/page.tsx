@@ -1,65 +1,46 @@
-"use client";
-
-import { ArrowLeft, Users } from "lucide-react";
-import { BottomNav } from "@/components/bottom-nav";
-import Link from "next/link";
+"use client"
 
 export default function ReferralNetworkPage() {
-  const network = [
-    { name: "@alice_defi", level: "L5", referrals: 12, earnings: "$2,400" },
-    { name: "@bob_trader", level: "L4", referrals: 8, earnings: "$1,600" },
-    { name: "@carol_stake", level: "L6", referrals: 15, earnings: "$3,000" },
-  ];
-
   return (
-    <div className="min-h-screen bg-void-black pb-20">
-      <div className="sticky top-0 z-10 bg-void-black/80 backdrop-blur-xl border-b border-border-subtle">
-        <div className="flex items-center gap-4 px-6 py-4">
-          <Link href="/profile"><ArrowLeft className="w-5 h-5 text-text-secondary" /></Link>
-          <h1 className="font-display text-xl font-bold text-text-primary">Referral Network</h1>
-        </div>
+    <div className="relative flex min-h-screen flex-col bg-[#05050a] pb-20">
+      <div className="pointer-events-none fixed inset-0">
+        <div className="absolute -right-[200px] top-[100px] h-[500px] w-[500px] rounded-full bg-[#f59e0b] opacity-[0.06] blur-3xl" />
       </div>
 
-      <div className="px-6 py-6">
-        <div className="bg-surface-1 rounded-2xl p-6 border border-border-subtle mb-6">
-          <div className="flex items-center gap-3 mb-4">
-            <Users className="w-5 h-5 text-plasma-cyan" />
-            <span className="text-sm font-medium text-text-primary">Your Network</span>
-          </div>
-          <div className="grid grid-cols-2 gap-4">
+      <div className="relative z-10 px-5 pt-6">
+        <h1 className="mb-6 font-[family-name:var(--font-space-grotesk)] text-lg font-extrabold uppercase tracking-[0.08em] text-[#f1f5f9]">
+          Referral Network
+        </h1>
+
+        <div className="mb-6 rounded-xl border border-[rgba(255,255,255,0.04)] bg-[#0d0d14] p-5 text-center">
+          <div className="mb-2 text-xs font-bold uppercase text-[#64748b]">TOTAL TEAM</div>
+          <div className="mb-4 font-[family-name:var(--font-jetbrains-mono)] text-4xl font-bold text-[#f1f5f9]">47</div>
+          <div className="grid grid-cols-2 gap-3">
             <div>
-              <div className="text-xs text-text-secondary mb-1">Total Referrals</div>
-              <div className="font-mono text-2xl font-bold text-text-primary">35</div>
+              <div className="text-[10px] text-[#64748b]">DIRECT</div>
+              <div className="font-[family-name:var(--font-jetbrains-mono)] text-lg font-bold text-[#00f5d4]">12</div>
             </div>
             <div>
-              <div className="text-xs text-text-secondary mb-1">Total Earned</div>
-              <div className="font-mono text-2xl font-bold text-accent-green">$7,000</div>
+              <div className="text-[10px] text-[#64748b]">INDIRECT</div>
+              <div className="font-[family-name:var(--font-jetbrains-mono)] text-lg font-bold text-[#8b5cf6]">35</div>
             </div>
           </div>
         </div>
 
         <div className="space-y-3">
-          {network.map((user, i) => (
-            <div key={i} className="bg-surface-1 rounded-xl p-4 border border-border-subtle">
-              <div className="flex items-center justify-between mb-3">
-                <div className="flex items-center gap-3">
-                  <div className="w-10 h-10 rounded-full bg-gradient-to-br from-plasma-cyan to-accent-purple" />
-                  <div>
-                    <div className="text-sm font-medium text-text-primary">{user.name}</div>
-                    <div className="text-xs text-plasma-cyan">{user.level}</div>
-                  </div>
-                </div>
+          {[1, 2, 3].map((i) => (
+            <div key={i} className="flex items-center gap-3 rounded-xl border border-[rgba(255,255,255,0.04)] bg-[#0d0d14] p-4">
+              <div className="flex h-10 w-10 shrink-0 items-center justify-center rounded-full bg-gradient-to-br from-[#00f5d4] to-[#8b5cf6] text-xl">
+                ⚡
               </div>
-              <div className="flex items-center justify-between text-xs">
-                <span className="text-text-secondary">{user.referrals} referrals</span>
-                <span className="font-mono font-bold text-accent-green">{user.earnings}</span>
+              <div className="flex-1">
+                <div className="font-[family-name:var(--font-jetbrains-mono)] text-sm font-bold text-[#f1f5f9]">0xAbcd...{i}234</div>
+                <div className="text-xs text-[#64748b]">L{i} · $5.2K volume</div>
               </div>
             </div>
           ))}
         </div>
       </div>
-
-      <BottomNav />
     </div>
-  );
+  )
 }
