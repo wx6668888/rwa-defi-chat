@@ -216,6 +216,67 @@ export default function ChatPage() {
                   CLAIM
                 </button>
               </div>
+
+        {/* Message 4 - Own message (right-aligned) */}
+        <div className="border-b border-[rgba(255,255,255,0.03)] py-3">
+          <div className="flex flex-row-reverse gap-3">
+            <div className="flex h-7 w-7 shrink-0 items-center justify-center rounded-full bg-[#00f5d4]/10 text-xs">
+              🚀
+            </div>
+            <div className="flex-1">
+              <div className="flex flex-row-reverse items-center justify-between">
+                <div className="flex flex-row-reverse items-center gap-2">
+                  <span className="font-[family-name:var(--font-jetbrains-mono)] text-[11px] text-[#64748b]">
+                    0xYour...Addr
+                  </span>
+                  <span className="rounded bg-[#00f5d4]/10 px-1.5 py-0.5 font-[family-name:var(--font-inter)] text-[10px] text-[#00f5d4]">
+                    🚀L3
+                  </span>
+                </div>
+                <span className="font-[family-name:var(--font-inter)] text-[10px] text-[#334155]">2:37 PM</span>
+              </div>
+              <p className="mt-1 text-right font-[family-name:var(--font-inter)] text-sm text-white">
+                Just claimed! Thanks 🙏
+              </p>
+            </div>
+          </div>
+        </div>
+
+        {/* Message 5 - Own Data Card - Lucky Draw Win */}
+        <div className="border-b border-[rgba(255,255,255,0.03)] py-3">
+          <div className="flex flex-row-reverse gap-3">
+            <div className="flex h-7 w-7 shrink-0 items-center justify-center rounded-full bg-[#00f5d4]/10 text-xs">
+              🚀
+            </div>
+            <div className="flex-1">
+              <div className="flex flex-row-reverse items-center justify-between">
+                <div className="flex flex-row-reverse items-center gap-2">
+                  <span className="font-[family-name:var(--font-jetbrains-mono)] text-[11px] text-[#64748b]">
+                    0xYour...Addr
+                  </span>
+                  <span className="rounded bg-[#00f5d4]/10 px-1.5 py-0.5 font-[family-name:var(--font-inter)] text-[10px] text-[#00f5d4]">
+                    🚀L3
+                  </span>
+                </div>
+                <span className="font-[family-name:var(--font-inter)] text-[10px] text-[#334155]">2:38 PM</span>
+              </div>
+              <div className="mt-2 rounded-xl border border-[rgba(0,245,212,0.2)] bg-[#0d0d14] p-3">
+                <div className="mb-2 font-[family-name:var(--font-inter)] text-[10px] uppercase tracking-[0.15em] text-[#00f5d4]">
+                  🎰 LUCKY DRAW WIN
+                </div>
+                <p className="font-[family-name:var(--font-inter)] text-sm text-[#f1f5f9]">
+                  I won 2nd prize in Round #1,847!
+                </p>
+                <div className="mt-2 font-[family-name:var(--font-space-grotesk)] text-[28px] font-bold text-[#10b981]">
+                  +$3,112
+                </div>
+                <div className="mt-2 font-[family-name:var(--font-inter)] text-[11px] text-[#64748b]">
+                  Share this result · Verify on BscScan →
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
             </div>
           </div>
         </div>
