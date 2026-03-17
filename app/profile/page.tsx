@@ -1,85 +1,85 @@
-"use client";
+"use client"
 
-import { Copy, ExternalLink } from "lucide-react";
-import { BottomNav } from "@/components/bottom-nav";
-import { BackgroundEffects } from "@/components/background-effects";
-import { NodeHexIcon } from "@/components/node-hex-icon";
-import { NODE_LEVELS } from "@/lib/node-levels";
+import { Copy } from "lucide-react"
 
 export default function ProfilePage() {
-  const currentLevel = NODE_LEVELS[4]; // L5
-
   return (
-    <div className="min-h-screen bg-void-black pb-20">
-      <BackgroundEffects />
-
-      {/* Header */}
-      <div className="relative z-10 bg-surface-1/80 backdrop-blur-xl border-b border-border-subtle px-6 py-4">
-        <h1 className="font-display text-lg font-bold text-text-primary">PROFILE</h1>
+    <div className="relative flex min-h-screen flex-col bg-[#05050a] pb-20">
+      {/* Background effects */}
+      <div className="pointer-events-none fixed inset-0">
+        <div className="absolute -right-[200px] top-[100px] h-[500px] w-[500px] rounded-full bg-[#f59e0b] opacity-[0.06] blur-3xl" />
+        <div className="absolute -bottom-[200px] -left-[200px] h-[500px] w-[500px] rounded-full bg-[#00f5d4] opacity-[0.05] blur-3xl" />
       </div>
 
-      <div className="relative z-10 px-6 py-8 space-y-6">
-        {/* Hero */}
-        <div className="text-center">
-          <div className="mb-4 flex justify-center">
-            <NodeHexIcon config={currentLevel} size={96} showCode={false} />
+      {/* Content */}
+      <div className="relative z-10 px-5 pt-6">
+        {/* Header */}
+        <h1 className="mb-6 font-[family-name:var(--font-space-grotesk)] text-lg font-extrabold uppercase tracking-[0.08em] text-[#f1f5f9]">
+          Profile
+        </h1>
+
+        {/* Avatar & Level */}
+        <div className="mb-6 flex flex-col items-center">
+          <div className="mb-3 flex h-24 w-24 items-center justify-center rounded-full bg-gradient-to-br from-[#00f5d4] to-[#8b5cf6] text-4xl">
+            ⚡
           </div>
-          <h2 className="font-display text-2xl font-bold text-text-primary mb-2">L5 COMET</h2>
-          <div className="flex items-center justify-center gap-2 mb-2">
-            <span className="font-mono text-sm text-text-secondary">0x4f2a...8b1c</span>
-            <button className="text-plasma-cyan"><Copy className="w-4 h-4" /></button>
+          <h2 className="font-[family-name:var(--font-jetbrains-mono)] text-xl font-bold text-[#f1f5f9]">
+            0x4f2a...8b1c
+          </h2>
+          <div className="mt-2 rounded-full bg-[#f59e0b]/10 px-3 py-1">
+            <span className="font-[family-name:var(--font-jetbrains-mono)] text-sm font-bold text-[#f59e0b]">
+              ⚡ L1 Spark
+            </span>
           </div>
-          <div className="text-xs text-text-disabled">Joined 94 days ago · BNB Chain</div>
-          <div className="text-sm text-text-primary mt-2 font-medium">CryptoWhale_88</div>
         </div>
 
-        {/* Stats */}
-        <div className="grid grid-cols-4 gap-3">
-          <div className="text-center">
-            <div className="font-mono text-lg font-bold text-plasma-cyan">25K</div>
-            <div className="text-[9px] text-text-secondary uppercase tracking-wider mt-1">Staked</div>
+        {/* Stats Grid */}
+        <div className="mb-6 grid grid-cols-4 gap-3">
+          <div className="rounded-xl border border-[rgba(255,255,255,0.04)] bg-[#0d0d14] p-3 text-center">
+            <div className="font-[family-name:var(--font-jetbrains-mono)] text-lg font-bold text-[#00f5d4]">25K</div>
+            <div className="mt-1 text-[9px] uppercase tracking-wider text-[#64748b]">Staked</div>
           </div>
-          <div className="text-center">
-            <div className="font-mono text-lg font-bold text-success">$1.2K</div>
-            <div className="text-[9px] text-text-secondary uppercase tracking-wider mt-1">Earned</div>
+          <div className="rounded-xl border border-[rgba(255,255,255,0.04)] bg-[#0d0d14] p-3 text-center">
+            <div className="font-[family-name:var(--font-jetbrains-mono)] text-lg font-bold text-[#10b981]">$1.2K</div>
+            <div className="mt-1 text-[9px] uppercase tracking-wider text-[#64748b]">Earned</div>
           </div>
-          <div className="text-center">
-            <div className="font-mono text-lg font-bold text-text-primary">47</div>
-            <div className="text-[9px] text-text-secondary uppercase tracking-wider mt-1">Team</div>
+          <div className="rounded-xl border border-[rgba(255,255,255,0.04)] bg-[#0d0d14] p-3 text-center">
+            <div className="font-[family-name:var(--font-jetbrains-mono)] text-lg font-bold text-[#f1f5f9]">47</div>
+            <div className="mt-1 text-[9px] uppercase tracking-wider text-[#64748b]">Team</div>
           </div>
-          <div className="text-center">
-            <div className="font-mono text-lg font-bold text-gold-node">17%</div>
-            <div className="text-[9px] text-text-secondary uppercase tracking-wider mt-1">APY</div>
+          <div className="rounded-xl border border-[rgba(255,255,255,0.04)] bg-[#0d0d14] p-3 text-center">
+            <div className="font-[family-name:var(--font-jetbrains-mono)] text-lg font-bold text-[#f59e0b]">17%</div>
+            <div className="mt-1 text-[9px] uppercase tracking-wider text-[#64748b]">APY</div>
           </div>
         </div>
 
         {/* Level Progress */}
-        <div className="bg-surface-1 border border-border-subtle rounded-xl p-5">
-          <div className="flex items-center justify-between mb-3">
-            <span className="text-sm font-bold text-text-primary">L5 → L6</span>
-            <span className="font-mono text-sm font-bold text-gold-node">38%</span>
+        <div className="mb-6 rounded-xl border border-[rgba(255,255,255,0.04)] bg-[#0d0d14] p-5">
+          <div className="mb-3 flex items-center justify-between">
+            <span className="text-sm font-bold text-[#f1f5f9]">L1 → L2</span>
+            <span className="font-[family-name:var(--font-jetbrains-mono)] text-sm font-bold text-[#f59e0b]">38%</span>
           </div>
-          <div className="h-2 bg-surface-2 rounded-full mb-4 overflow-hidden">
-            <div className="h-full bg-gradient-to-r from-gold-node to-warning rounded-full" style={{ width: "38%" }} />
+          <div className="mb-4 h-2 overflow-hidden rounded-full bg-[#13131e]">
+            <div className="h-full rounded-full bg-gradient-to-r from-[#f59e0b] to-[#fb923c]" style={{ width: "38%" }} />
           </div>
           <div className="space-y-2 text-xs">
             <div className="flex justify-between">
-              <span className="text-text-secondary">Personal $20K</span>
-              <span className="text-success">$3K ✓</span>
+              <span className="text-[#64748b]">Personal $3K</span>
+              <span className="text-[#10b981]">$1.1K ✓</span>
             </div>
             <div className="flex justify-between">
-              <span className="text-text-secondary">Team $400K</span>
-              <span className="text-text-primary">$151K</span>
+              <span className="text-[#64748b]">Team $10K</span>
+              <span className="text-[#f1f5f9]">$3.8K</span>
             </div>
           </div>
         </div>
 
         {/* Portfolio */}
-        <div className="grid grid-cols-2 gap-3">
-          <div className="bg-surface-1 border border-border-subtle rounded-xl p-4">
-            <div className="text-[10px] text-text-secondary uppercase tracking-wider mb-2">USDT STAKED</div>
-            <div className="font-mono text-xl font-bold text-plasma-cyan mb-3">$25,000</div>
-            <div className="text-xs text-text-secondary mb-2">90-day lock · 47 days left</div>
+        <div className="mb-6 grid grid-cols-2 gap-3">
+          <div className="rounded-xl border border-[rgba(255,255,255,0.04)] bg-[#0d0d14] p-4">
+            <div className="mb-2 text-[10px] uppercase tracking-wider text-[#64748b]">USDT STAKED</div>
+            <div className="mb-3 font-[family-name:var(--font-jetbrains-mono)] text-xl font-bold text-[#00f5d4]">$25,000</div>
+            <div className="mb-2 text-xs text-[#64748b]">90-day lock · 47 days left</div>
             <div className="flex justify-center">
               <svg width="48" height="48" style={{ transform: 'rotate(-90deg)' }}>
                 <circle cx="24" cy="24" r="20" fill="none" stroke="#1a1a2e" strokeWidth="4" />
@@ -87,28 +87,28 @@ export default function ProfilePage() {
               </svg>
             </div>
           </div>
-          <div className="bg-surface-1 border border-border-subtle rounded-xl p-4">
-            <div className="text-[10px] text-text-secondary uppercase tracking-wider mb-2">stRWA BALANCE</div>
-            <div className="font-mono text-xl font-bold text-void-purple mb-1">1,240</div>
-            <div className="text-xs text-text-secondary mb-3">≈ $1,054</div>
-            <div className="text-xs text-success font-medium">Flexible unlock</div>
+          <div className="rounded-xl border border-[rgba(255,255,255,0.04)] bg-[#0d0d14] p-4">
+            <div className="mb-2 text-[10px] uppercase tracking-wider text-[#64748b]">stRWA BALANCE</div>
+            <div className="mb-1 font-[family-name:var(--font-jetbrains-mono)] text-xl font-bold text-[#8b5cf6]">1,240</div>
+            <div className="mb-3 text-xs text-[#64748b]">≈ $1,054</div>
+            <div className="text-xs font-medium text-[#10b981]">Flexible unlock</div>
           </div>
         </div>
 
-        {/* Referral */}
-        <div className="bg-surface-1 border border-border-subtle rounded-xl p-5">
-          <div className="text-xs font-bold text-text-primary mb-3">REFERRAL LINK</div>
-          <div className="flex items-center gap-2 mb-3">
-            <div className="flex-1 bg-surface-2 rounded-lg px-3 py-2 font-mono text-xs text-text-secondary truncate">
+        {/* Referral Link */}
+        <div className="rounded-xl border border-[rgba(255,255,255,0.04)] bg-[#0d0d14] p-5">
+          <div className="mb-3 text-xs font-bold uppercase text-[#f1f5f9]">REFERRAL LINK</div>
+          <div className="mb-3 flex items-center gap-2">
+            <div className="flex-1 truncate rounded-lg bg-[#13131e] px-3 py-2 font-[family-name:var(--font-jetbrains-mono)] text-xs text-[#64748b]">
               rwa.chat/ref/4f2a8b1c
             </div>
-            <button className="text-plasma-cyan"><Copy className="w-4 h-4" /></button>
+            <button className="text-[#00f5d4]">
+              <Copy className="h-4 w-4" />
+            </button>
           </div>
-          <div className="text-xs text-text-secondary">47 direct · $151K team volume</div>
+          <div className="text-xs text-[#64748b]">47 direct · $151K team volume</div>
         </div>
       </div>
-
-      <BottomNav />
     </div>
-  );
+  )
 }
