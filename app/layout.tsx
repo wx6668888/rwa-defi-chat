@@ -25,6 +25,8 @@ export const metadata: Metadata = {
   description: "Real World Assets tokenization protocol on BNB Chain",
 };
 
+import { AppProvider } from "@/lib/context/AppContext";
+
 export default function RootLayout({
   children,
 }: Readonly<{
@@ -35,7 +37,7 @@ export default function RootLayout({
       <body
         className={`${inter.variable} ${spaceGrotesk.variable} ${jetbrainsMono.variable} antialiased`}
       >
-        {children}
+        <AppProvider>{children}</AppProvider>
       </body>
     </html>
   );

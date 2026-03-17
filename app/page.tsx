@@ -5,9 +5,12 @@ import Link from "next/link";
 import { NodeHexIcon } from "@/components/node-hex-icon";
 import { NODE_LEVELS } from "@/lib/node-levels";
 import { BackgroundEffects } from "@/components/background-effects";
+import { WalletConnect } from "@/components/WalletConnect";
+import { useApp } from "@/lib/context/AppContext";
 
 export default function LaunchPage() {
   const [showWalletModal, setShowWalletModal] = useState(false);
+  const { isConnected } = useApp();
 
   return (
     <div className="relative min-h-screen bg-void-black overflow-hidden">
@@ -56,13 +59,15 @@ export default function LaunchPage() {
         </div>
 
         {/* CTA Button */}
-        <Link href="/channels">
-          <button 
-            className="group px-10 py-4 border-2 border-plasma-cyan bg-transparent text-plasma-cyan font-bold text-sm tracking-wide rounded-lg hover:bg-plasma-cyan hover:text-void-black transition-all duration-300 hover:shadow-[0_0_30px_rgba(0,245,212,0.5)]"
-          >
-            CONNECT WALLET
-          </button>
-        </Link>
+        {isConnected ? (
+          <Link href="/channels">
+            <button className="group px-10 py-4 border-2 border-plasma-cyan bg-transparent text-plasma-cyan font-bold text-sm tracking-wide rounded-lg hover:bg-plasma-cyan hover:text-void-black transition-all duration-300 hover:shadow-[0_0_30px_rgba(0,245,212,0.5)]">
+              ENTER APP
+            </button>
+          </Link>
+        ) : (
+          <WalletConnect />
+        )}
 
         {/* Footer */}
         <p className="text-[10px] text-text-secondary mt-8 tracking-wide">
